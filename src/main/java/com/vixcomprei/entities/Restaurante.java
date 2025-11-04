@@ -1,12 +1,12 @@
 package com.vixcomprei.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -17,13 +17,25 @@ import java.util.List;
 @Table(name = "tb_restaurante")
 public class Restaurante {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
     private String descricao;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
+
     private String endereco;
     private String telefone;
     private Integer tempoMedioEntrega;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuarioResponsavel;
-    private List<Produto> produtos;
+
+    @OneToMany(mappedBy = "restaurante", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Produto> produtos = new ArrayList<>();
 }
