@@ -32,7 +32,7 @@ public class Produto {
     private CondicaoProduto condicaoProduto;
 
     @ManyToOne
-    @JoinColumn(name = "servico_id")
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
     @ElementCollection
