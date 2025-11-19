@@ -37,7 +37,7 @@ public class Usuario {
     private List<Produto> produtos = new ArrayList<>();
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Pedido> pedido = new ArrayList<>();
+    private List<Pedido> pedidos = new ArrayList<>();
 
     @OneToMany(mappedBy = "usuarioResponsavel", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Restaurante> restaurantes = new ArrayList<>();

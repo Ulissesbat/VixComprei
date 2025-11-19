@@ -24,7 +24,6 @@ public class ProdutoDto {
     private CondicaoProduto condicaoProduto;
     private Long categoriaId;
     private Long usuarioId;
-    private Long restauranteId;
     private List<String> imagens;
     private LocalDateTime dataPublicacao;
     private boolean ativo;
@@ -38,7 +37,6 @@ public class ProdutoDto {
         this.condicaoProduto = entity.getCondicaoProduto();
         this.categoriaId = entity.getCategoria() != null ? entity.getCategoria().getId() : null;
         this.usuarioId = entity.getUsuario() != null ? entity.getUsuario().getId() : null;
-        this.restauranteId = entity.getRestaurante() != null ? entity.getRestaurante().getId() : null;
         this.imagens = entity.getImagens();
         this.dataPublicacao = entity.getDataPublicacao();
         this.ativo = entity.isAtivo();
@@ -64,12 +62,6 @@ public class ProdutoDto {
             Usuario usuario = new Usuario();
             usuario.setId(this.usuarioId);
             produto.setUsuario(usuario);
-        }
-
-        if (this.restauranteId != null) {
-            Restaurante restaurante = new Restaurante();
-            restaurante.setId(this.restauranteId);
-            produto.setRestaurante(restaurante);
         }
 
         produto.setImagens(this.imagens);

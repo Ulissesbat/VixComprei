@@ -36,9 +36,6 @@ public class RestauranteDto {
         this.telefone = entity.getTelefone();
         this.tempoMedioEntrega = entity.getTempoMedioEntrega();
         this.usuarioResponsavelId = entity.getUsuarioResponsavel() != null ? entity.getUsuarioResponsavel().getId() : null;
-        this.produtos = entity.getProdutos() != null
-                ? entity.getProdutos().stream().map(ProdutoDto::new).collect(Collectors.toList())
-                : null;
     }
 
     // ✅ Método para converter DTO → Entidade
@@ -62,15 +59,6 @@ public class RestauranteDto {
             Usuario usuario = new Usuario();
             usuario.setId(this.usuarioResponsavelId);
             restaurante.setUsuarioResponsavel(usuario);
-        }
-
-        // ⚙️ Lista de produtos (se quiser persistir em cascata)
-        if (this.produtos != null && !this.produtos.isEmpty()) {
-            List<Produto> produtosEntity = this.produtos.stream()
-                    .map(ProdutoDto::toEntity)
-                    .peek(p -> p.setRestaurante(restaurante)) // mantém relação bidirecional
-                    .collect(Collectors.toList());
-            restaurante.setProdutos(produtosEntity);
         }
 
         return restaurante;

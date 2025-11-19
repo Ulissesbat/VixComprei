@@ -22,7 +22,7 @@ public class Servico {
     private Double precoBase;
 
     @ManyToOne
-    @JoinColumn(name = "servico_id")
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
     @ManyToOne

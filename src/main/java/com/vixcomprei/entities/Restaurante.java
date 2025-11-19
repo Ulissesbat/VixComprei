@@ -35,7 +35,4 @@ public class Restaurante {
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuarioResponsavel;
-
-    @OneToMany(mappedBy = "restaurante", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Produto> produtos = new ArrayList<>();
 }
