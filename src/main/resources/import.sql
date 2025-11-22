@@ -2,6 +2,7 @@
 INSERT INTO tb_categoria (nome, tipo, descricao) VALUES ( 'Eletrônicos', 'PRODUTO', 'Produtos de tecnologia');
 INSERT INTO tb_categoria (nome, tipo, descricao) VALUES ( 'Informática', 'SERVICO', 'Serviços técnicos de informática');
 INSERT INTO tb_categoria (nome, tipo, descricao) VALUES ( 'Alimentação', 'RESTAURANTE', 'Restaurantes e lanchonetes');
+INSERT INTO tb_categoria (nome, tipo, descricao) VALUES ( 'Marketing Digital', 'SERVICO', 'Vendas Digitais');
 
 INSERT INTO tb_usuario (nome, email, senha, telefone, endereco, data_cadastro, tipo_usuario) VALUES ('João Silva', 'joao@gmail.com', '123456', '11999990001', 'Rua A, 123', '2025-01-10T10:00:00', 'CLIENTE');
 INSERT INTO tb_usuario (nome, email, senha, telefone, endereco, data_cadastro, tipo_usuario) VALUES ( 'Maria Oliveira', 'maria@gmail.com', '123456', '11999990002', 'Rua B, 456', '2025-01-11T11:00:00', 'VENDEDOR');
