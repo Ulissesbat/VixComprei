@@ -24,10 +24,6 @@ public class Restaurante {
     private String nome;
     private String descricao;
 
-    @ManyToOne
-    @JoinColumn(name = "categoria_id")
-    private Categoria categoria;
-
     private String endereco;
     private String telefone;
     private Integer tempoMedioEntrega;
@@ -35,4 +31,9 @@ public class Restaurante {
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuarioResponsavel;
+
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
 }
