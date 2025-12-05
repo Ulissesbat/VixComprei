@@ -45,6 +45,9 @@ public class Usuario {
     @OneToMany(mappedBy = "usuarioPrestador", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Servico> servicos = new ArrayList<>();
 
+    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private AuthUser authUser;
+
 
 
 }

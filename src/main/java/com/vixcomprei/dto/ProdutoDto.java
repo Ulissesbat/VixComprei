@@ -37,7 +37,10 @@ public class ProdutoDto {
         this.condicaoProduto = entity.getCondicaoProduto();
         this.categoriaId = entity.getCategoria() != null ? entity.getCategoria().getId() : null;
         this.usuarioId = entity.getUsuario() != null ? entity.getUsuario().getId() : null;
-        this.imagens = entity.getImagens();
+        this.imagens = entity.getImagens() != null
+                ? List.copyOf(entity.getImagens())
+                : List.of();
+
         this.dataPublicacao = entity.getDataPublicacao();
         this.ativo = entity.isAtivo();
     }
